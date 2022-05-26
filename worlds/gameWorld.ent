@@ -1,0 +1,21 @@
+SubScene {
+ Parent "worlds/Eden/Eden.ent"
+}
+Layer Spawns {
+ Index 3
+}
+Layer Gamemode {
+ Index 1
+}
+Layer Managers {
+ Index 2
+}
+Layer Area {
+ Index 0
+}
+Layer AI {
+ Index 4
+}
+Layer Tasks {
+ Index 5
+}

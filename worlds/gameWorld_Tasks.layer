@@ -1,0 +1,114 @@
+GameEntity IntelBookEntity {
+ components {
+  SoundComponent "{5974A930554706A3}" {
+  }
+  CollectItem "{597515BD8C52DF81}" {
+   objName "obj_EnemyIntel"
+   objTitle "Collect enemy ledger"
+   objDesc "Wait for new orders..."
+  }
+  MeshObject "{5974A9305547073E}" {
+   Object "{1E7E855124A9C21B}Assets/Props/Civilian/Notebook_01/Notebook_01_Open.xob"
+   LODFactors {
+    5 2 1.5 1 1 1
+   }
+  }
+  Hierarchy "{5974A93055470739}" {
+  }
+  RigidBody "{5974A9305547078E}" {
+   Mass 10
+   ResponseIndex "TinyDestructible"
+   ModelGeometry 1
+   Static 1
+  }
+  SCR_DestructionMultiPhaseComponent "{5974A9305547040C}" {
+   Enabled 0
+   "Additional hit zones" {
+    ScriptedHitZone Default {
+     HZDefault 1
+     "Melee multiplier" 1
+     "Kinetic multiplier" 1
+     "Explosive multiplier" 90
+     "Incendiary multiplier" 1
+    }
+   }
+   m_fBaseHealth 400
+   m_fForceToDamageScale 350
+  }
+  ActionsManagerComponent "{5974A93055470440}" {
+   ActionContexts {
+    UserActionContext "{5974A93055470437}" {
+     ContextName "Switch"
+     Position PointInfo "{5974A93055470428}" {
+     }
+     Radius 1
+    }
+   }
+   additionalActions {
+    CompleteObjective "{5974A93195E175E8}" {
+     ParentContextList {
+      "Switch"
+     }
+     interactText "Collect enemy intel"
+    }
+   }
+  }
+  RplComponent "{5974A9305547045C}" {
+   Enabled 1
+  }
+ }
+ coords 875.572 3.547 6069.813
+ angleY -23.925
+ Flags 1027
+}
+SCR_FactionControlTriggerEntity EliminateAllTrigger {
+ coords 946.426 3.063 6070.692
+ TriggerShapeType Sphere
+ SphereRadius 200
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ UpdatePeriod 0.5
+ OnActivate ""\
+ "		SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());"\
+ "		Faction fac = GetGame().GetFactionManager().GetFactionByKey(\"US\");"\
+ "		int usIndex = GetGame().GetFactionManager().GetFactionIndex(fac);"\
+ "		gameMode.EndGameMode(SCR_GameModeEndData.CreateSimple(SCR_GameModeEndData.ENDREASON_EDITOR_FACTION_VICTORY, -1, usIndex));"\
+ "	"
+ m_sOwnerFactionKey "US"
+ m_fFriendlyRatioLimit 1
+}
+$grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
+ obj_Lighthouse {
+  coords 1132.191 33.274 6390.848
+  m_sName "Secure Lighthouse"
+  m_sDescription "SECONDARY: Secure the Lighthouse  to unlock another spawn position"
+  m_sMapIconName "Task_Seize"
+  m_sTaskListIconName "Task_Seize"
+  m_bNotifyAssignment 1
+  {
+   SCR_FactionControlTriggerEntity obj_lh_Trigger {
+    coords -8.006 0.572 3.498
+    TriggerShapeType Sphere
+    SphereRadius 10
+    TriggerActivationType "First change"
+    PeriodicQueries 1
+    ClassFilter "ChimeraCharacter"
+    OnActivate ""\
+    ""\
+    "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+    "		hintComponent.ShowCustomHint(\"New Spawnpoint at the LIGHTHOUSE unlocked\", \"NEW SPAWNPOINT\", 10);"\
+    "		"\
+    "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_lighthouse\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
+    "		"\
+    "	"
+    m_sOwnerFactionKey "US"
+    m_fFriendlyRatioLimit 1
+   }
+  }
+ }
+ obj_EnemyIntel {
+  coords 874.924 2.661 6070.238
+  m_sName "Collect enemy ledger"
+  m_sDescription "Collect ledger that contains intelligence about their project White Devil."
+ }
+}

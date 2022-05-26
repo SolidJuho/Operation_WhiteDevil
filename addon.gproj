@@ -1,0 +1,8 @@
+GameProject {
+ ID "OperationWhiteDevil"
+ GUID "5970EDEDD50F2088"
+ TITLE "Operation White Devil"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
