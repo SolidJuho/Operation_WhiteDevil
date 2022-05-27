@@ -4,7 +4,7 @@ GameEntity IntelBookEntity {
   }
   CollectItem "{597515BD8C52DF81}" {
    objName "obj_EnemyIntel"
-   objTitle "Collect enemy ledger"
+   objTitle "Collected enemy ledger"
    objDesc "Wait for new orders..."
   }
   MeshObject "{5974A9305547073E}" {
@@ -100,6 +100,11 @@ $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
     "		"\
     "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_lighthouse\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
     "		"\
+    "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"obj_Lighthouse\"));"\
+    "		task.Finish();"\
+    "		GetTaskManager().FinishTask(task);"\
+    "		SCR_CoopTaskManager coopTM = SCR_CoopTaskManager.Cast(GetTaskManager());"\
+    "		coopTM.UnlockObjective(\"obj_Lighthouse\");"\
     "	"
     m_sOwnerFactionKey "US"
     m_fFriendlyRatioLimit 1
