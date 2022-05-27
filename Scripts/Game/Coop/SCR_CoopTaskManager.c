@@ -92,6 +92,11 @@ class SCR_CoopTaskManager : SCR_BaseTaskManager
 				break;
 			}
 		}
+		if(objData==null)
+		{
+			//We are out of objectives??
+			return;
+		}
 		
 		foreach (string taskName : objData.m_TaskNames)
 		{
@@ -128,7 +133,7 @@ class SCR_CoopTaskManager : SCR_BaseTaskManager
 
 			task.SetTargetFaction(targetFaction);
 		}
-		
+		m_FailedTasks = {};
 		foreach (string taskName : objData.m_FailedTaskNames)
 		{
 			IEntity entity = world.FindEntityByName(taskName);
@@ -141,6 +146,11 @@ class SCR_CoopTaskManager : SCR_BaseTaskManager
 		foreach (SCR_BaseTask fTask : m_FailedTasks)
 		{
 			GetTaskManager().FailTask(fTask);
+		}
+		
+		if(objData.m_UnlockSpawnpoint!="")
+		{
+				SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(objData.m_UnlockSpawnpoint)).SetFactionKey("US");
 		}
 	}
 }
@@ -156,6 +166,9 @@ class SolidObjectives
 	
 	[Attribute("", UIWidgets.Auto, "Entity names of tasks that fails when this activates.", category: "TaskManager: COOP")]
 	ref array<string> m_FailedTaskNames;
+	
+	[Attribute("", UIWidgets.EditBox, "Unlock spawnpoint name.", category: "TaskManager: COOP")]
+	string m_UnlockSpawnpoint;
 }
 
 

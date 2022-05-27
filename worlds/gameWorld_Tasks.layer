@@ -5,7 +5,8 @@ GameEntity IntelBookEntity {
   CollectItem "{597515BD8C52DF81}" {
    objName "obj_EnemyIntel"
    objTitle "Collected enemy ledger"
-   objDesc "Wait for new orders..."
+   objDesc "Evacuate combat zone."
+   unlockObj "u_Evac"
   }
   MeshObject "{5974A9305547073E}" {
    Object "{1E7E855124A9C21B}Assets/Props/Civilian/Notebook_01/Notebook_01_Open.xob"
@@ -62,9 +63,10 @@ GameEntity IntelBookEntity {
  Flags 1027
 }
 SCR_FactionControlTriggerEntity EliminateAllTrigger {
- coords 946.426 3.063 6070.692
+ coords 1535.333 47.301 5576.438
  TriggerShapeType Sphere
- SphereRadius 200
+ SphereRadius 6
+ DrawShape 1
  TriggerActivationType "First change"
  PeriodicQueries 1
  UpdatePeriod 0.5
@@ -98,13 +100,15 @@ $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
     "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
     "		hintComponent.ShowCustomHint(\"New Spawnpoint at the LIGHTHOUSE unlocked\", \"NEW SPAWNPOINT\", 10);"\
     "		"\
-    "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_lighthouse\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
-    "		"\
     "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"obj_Lighthouse\"));"\
-    "		task.Finish();"\
-    "		GetTaskManager().FinishTask(task);"\
+    "		if(task!=null)"\
+    "		{"\
+    "			task.Finish();"\
+    "			GetTaskManager().FinishTask(task);"\
+    "		}"\
+    ""\
     "		SCR_CoopTaskManager coopTM = SCR_CoopTaskManager.Cast(GetTaskManager());"\
-    "		coopTM.UnlockObjective(\"obj_Lighthouse\");"\
+    "		coopTM.UnlockObjective(\"u_Lighthouse\");"\
     "	"
     m_sOwnerFactionKey "US"
     m_fFriendlyRatioLimit 1
@@ -115,5 +119,15 @@ $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
   coords 874.924 2.661 6070.238
   m_sName "Collect enemy ledger"
   m_sDescription "Collect ledger that contains intelligence about their project White Devil."
+  m_bNotifyAssignment 1
+ }
+ obj_Evac {
+  coords 1535.166 48.46 5576.605
+  m_sName "Evacuate"
+  m_sDescription "Move to evacuation zone."
+  m_sMapIconName "Icon_Task_Evacuate"
+  m_sTaskListIconName "Icon_Task_Evacuate"
+  m_bNotifyAssignment 1
+  m_bNotifyUnassign 1
  }
 }

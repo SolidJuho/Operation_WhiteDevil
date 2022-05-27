@@ -1,15 +1,25 @@
 $grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
- BoatSpawn {
-  coords 1474.875 0.415 6345.192
+ sp_Boat {
+  coords 1408.359 1.669 6355.968
   m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
    Name "Infiltration Point"
   }
  }
- spawnPoint_lighthouse {
+ sp_lighthouse {
   coords 1129.167 34.191 6400.808
   m_sFaction "0"
   m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
    Name "Lighthouse"
   }
  }
+ sp_Harbor {
+  coords 890.847 3.219 6080.272
+  m_sFaction "0"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "Harbor"
+  }
+ }
+}
+GenericEntity : "{7DA2AFFC7B4BE844}Prefabs/Weapons/Warheads/Warhead_Grenade_HE.et" {
+ coords 984.058 2.845 6039.759
 }

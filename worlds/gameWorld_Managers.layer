@@ -40,13 +40,18 @@ SCR_CoopTaskManager : "{389A260C809DA28A}prefabs/CoopTaskManager.et" {
  }
  AdditionalObjectives {
   SolidObjectives "{59755188C4ECA04C}" {
-   m_UnlockKey "obj_Lighthouse"
+   m_UnlockKey "u_Lighthouse"
    m_TaskNames {
     "obj_EnemyIntel"
    }
-   m_FailedTaskNames {
-    "obj_DestroyEnemyPartol"
+   m_UnlockSpawnpoint "sp_lighthouse"
+  }
+  SolidObjectives "{59755168E52B2AD1}" {
+   m_UnlockKey "u_Evac"
+   m_TaskNames {
+    "obj_Evac"
    }
+   m_UnlockSpawnpoint "sp_Harbor"
   }
  }
 }

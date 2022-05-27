@@ -11,7 +11,8 @@ class CollectItem : ScriptComponent
 	string objTitle;
 	[Attribute("", UIWidgets.EditBox, "Objective description.", category: "Objective Data")]
 	string objDesc;
-
+	[Attribute("", UIWidgets.EditBox, "Objective unlock.", category: "Objective Data")]
+	string unlockObj;
 	
 	void TryCollectItem()
 	{
@@ -28,6 +29,11 @@ class CollectItem : ScriptComponent
 		
 		Rpc(RpcDo_CompleteObj);
 		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(entityName));
+		if(unlockObj != "")
+		{
+			SCR_CoopTaskManager coopTM = SCR_CoopTaskManager.Cast(GetTaskManager());
+			coopTM.UnlockObjective(unlockObj);
+		}
 	}	
 	
 	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]

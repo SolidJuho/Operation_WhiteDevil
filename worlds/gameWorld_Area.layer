@@ -21,6 +21,60 @@ $grp Vehicle : "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et" {
   coords 1056.142 2.812 6208.224
   angleY -114.374
  }
+ UAZ3 {
+  components {
+   SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+    m_fVehicleDestroyDamage 11880.1
+   }
+  }
+  coords 1066.048 2.812 6012.811
+  angleY 7.486
+ }
+ UAZ4 {
+  components {
+   SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+    m_fVehicleDestroyDamage 11880.1
+   }
+  }
+  coords 1062.321 2.812 6012.622
+  angleY -4.612
+ }
+ UAZ5 {
+  components {
+   SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+    m_fVehicleDestroyDamage 11880.1
+   }
+  }
+  coords 1058.008 2.812 6012.295
+  angleY -2.105
+ }
+ UAZ6 {
+  components {
+   SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+    m_fVehicleDestroyDamage 11880.1
+   }
+  }
+  coords 1055.269 2.812 6012.194
+  angleY -2.105
+ }
+ UAZ7 {
+  components {
+   SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+    m_fVehicleDestroyDamage 11880.1
+   }
+  }
+  coords 1655.499 71.51 5743.27
+  angleY -82.64
+ }
+ UAZ8 {
+  components {
+   SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+    m_fVehicleDestroyDamage 11880.1
+   }
+  }
+  coords 1665.364 71.51 5734.403
+  angleY -145.458
+ }
 }
 $grp GenericEntity : "{34D5E4BE0ABC23CC}prefabs/Sandbag_U.et" {
  {
@@ -35,27 +89,39 @@ $grp GenericEntity : "{34D5E4BE0ABC23CC}prefabs/Sandbag_U.et" {
   coords 1178.443 34.158 6247.916
   angleY -119.964
  }
+ {
+  coords 1649.07 71.887 5728.709
+  angleY -150
+ }
+ {
+  coords 1653.729 71.572 5737.754
+  angleY -150
+ }
 }
 $grp GenericEntity : "{386560726FEB327F}Prefabs/Structures/Military/Camps/Canvas_Covers/CanvasCover_Large_Base.et" {
  {
-  coords 935.521 2.751 6064.199
+  coords 935.521 3.013 6064.199
   angleY -53.759
  }
  {
-  coords 927.808 2.751 6069.852
+  coords 927.808 3.013 6069.852
   angleY -53.759
  }
  {
-  coords 920.022 2.751 6075.559
+  coords 920.022 3.013 6075.559
   angleY -53.759
  }
 }
 $grp GenericEntity : "{4923E218F59644B9}Prefabs/Props/Wrecks/BoatWreck_01.et" {
  {
-  coords 1473.334 -0.36 6351.242
+  coords 1410.034 0.282 6363.822
+  angleX -7.791
+  angleY 45
  }
  {
-  coords 1479.605 -0.214 6349.866
+  coords 1415.113 0.517 6361.492
+  angleX -6.364
+  angleY 45
  }
 }
 GenericEntity : "{5821AF9613353C80}Prefabs/Props/Military/Sandbags/Sandbag_01_bunker_burlap_camonet.et" {
@@ -160,6 +226,15 @@ GenericEntity : "{9A6B7E1F874E5C0F}Prefabs/Compositions/Misc/SubCompositions/San
 GenericEntity : "{9C29AB1512EB4F65}Prefabs/Compositions/Misc/SubCompositions/Sandbag_Sign_USSR_01.et" {
  coords 1078.58 8.537 5952.702
  angleY 98.231
+}
+Vehicle Ural4320_transport_covered_closed1 : "{9DD4FD3527CB46C8}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport_covered_closed.et" {
+ components {
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 21809.699
+  }
+ }
+ coords 1657.426 71.519 5736.646
+ angleY -150
 }
 $grp GenericEntity : "{AA96C0FB1A65B886}Prefabs/Props/Military/FieldKitchenTrailerUSSR_01.et" {
  {
