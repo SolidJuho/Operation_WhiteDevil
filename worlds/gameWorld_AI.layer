@@ -171,7 +171,7 @@ $grp SCR_AIGroup : "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam
   }
  }
  {
-  coords 877.588 3.02 6114.031
+  coords 878.187 3.02 6114.109
   angleY 84.134
   m_aUnitPrefabSlots {
    "{DCB41B3746FDD1BE}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Rifleman.et" "{976AC400219898FA}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Sharpshooter.et"
